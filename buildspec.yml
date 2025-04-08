@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+      - npm install
+pre_build:
+  commands:
+    - echo "Running pre-build steps (e.g., linting)..."
+    - npm run lint # Assuming you have a lint script
+build:
+  commands:
+    - echo "Building the application..."
+    - npm run build # Assuming you have a build script for frontend assets
+post_build:
+  commands:
+    - echo "Running tests..."
+    - npm test
+artifacts:
+  files:
+    - '**/*' # Include all files in the repository
+  discard-paths: yes
